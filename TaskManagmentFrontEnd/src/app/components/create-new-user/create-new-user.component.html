@@ -1,0 +1,13 @@
+<form class="p-3" (submit)="createUser()" [formGroup]="form">
+    <h3 style="text-align: center;">Create New User</h3>
+    <hr>
+    <div class="mb-3">
+        <label for="nameInput" class="form-label">Name</label>
+        <input type="text" class="form-control" id="nameInput" placeholder="Enter name" formControlName="name">
+    </div>
+    <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input type="password" class="form-control" id="passwordInput" placeholder="Enter password" formControlName="password">
+    </div>
+    <button type="submit" class="btn btn-primary float-end">Create User</button>
+</form>

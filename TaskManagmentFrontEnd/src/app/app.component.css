@@ -1,0 +1,3 @@
+::ng-deep .form-control, ::ng-deep .form-select{
+    border-color: #717171;
+}

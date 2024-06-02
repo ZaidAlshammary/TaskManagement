@@ -1,0 +1,7 @@
+<button [class.btn-primary]="!addingTask" [class.btn-danger]="addingTask" class="btn" (click)="toggleForm()">{{addingTask ? "Cancel" : "New Task"}}</button>
+@if (addingTask) {
+    <form (submit)="addTask()" [formGroup]="form">
+        <app-task-form [form]="form"></app-task-form>
+        <button type="submit" class="btn btn-primary mt-3 float-end" [disabled]="form.invalid">Submit</button>
+    </form>    
+}

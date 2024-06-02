@@ -1,0 +1,23 @@
+# Rider
+.idea/
+
+# Build results
+/bin/
+/obj/
+
+# NuGet packages
+/packages/
+
+# User-specific files
+*.userprefs
+*.suo
+*.user
+
+# Test Results
+/TestResults/
+
+# Logs
+/logs/
+
+# Build cache
+/.dotnet/

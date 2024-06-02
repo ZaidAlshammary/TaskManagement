@@ -1,0 +1,48 @@
+<div class="container mt-4">
+    <app-logout class="float-end"></app-logout>
+    <h1>Task Management</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Assigned To</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of tasks">
+                <td>{{ t.id }}</td>
+                <td>{{ t.title }}</td>
+                <td>{{ t.description }}</td>
+                <td>{{ t.dueDate | date }}</td>
+                <td>
+                    <select class="form-select" id="assignedUser" (change)="changeStatus(t.id, $event)">
+                        <option value="0" [selected]="t.status == 0">Pending</option>
+                        <option value="1" [selected]="t.status == 1">Complete</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-select" id="assignedUser" (change)="reAssignUser(t.id, $event)">
+                        @for (user of users; track $index) {
+                            <option value="{{ user.id }}" [selected]="t.assignee == user.fullName">{{ user.fullName }}</option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <button class="btn" [class.btn-warning]="taskIdToEdit != t.id" [class.btn-danger]="taskIdToEdit == t.id" (click)="editTask(t.id)">
+                        {{taskIdToEdit == t.id ? "Cancel" : "Edit"}}
+                    </button>
+                </td>
+                <td><button class="btn btn-outline-danger" (click)="deleteTask(t)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <app-add-task></app-add-task>
+    @if (taskIdToEdit) {
+        <app-edit-task [taskId]="taskIdToEdit"></app-edit-task>
+    }
+</div>
