@@ -5,11 +5,19 @@ This repository contains the #TaskManagement project, which uses Angular for the
 ## Prerequisites
 
 Before you start, make sure you have the following tools installed on your system:
+- MySQL 8.0.11
 - .NET 6 SDK
 - Node.js v20.14.0
 - npm v10.7.0
 
 ## Setting up the Development Environment
+
+### MySQL Setup
+
+1. **Install MySQL Using Docker**
+   ```bash
+   docker run --name TaskManagement -p 3306:3306 -e MYSQL_ROOT_PASSWORD=12345 -d mysql:8.0.11
+   ```
 
 ### Angular Setup
 
